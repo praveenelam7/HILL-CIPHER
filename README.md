@@ -30,6 +30,37 @@ STEP-5: Combine all these groups to get the complete cipher text.
 
 ## PROGRAM 
 
+```
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+    char text[100];
+    int a, b, x, y, i;
+    int k[2][2] = {{3, 3}, {2, 5}};
+
+    printf("Enter text: ");
+    scanf("%99s", text);
+
+    for (i = 0; text[i] != '\0'; i += 2)
+    {
+        a = toupper(text[i]) - 'A';
+        b = text[i + 1] ? toupper(text[i + 1]) - 'A' : 23;
+
+        x = (3*a + 3*b) % 26;
+        y = (2*a + 5*b) % 26;
+
+        printf("%c%c", x + 'A', y + 'A');
+    }
+
+    return 0;
+}
+```
 ## OUTPUT
+<img width="1485" height="757" alt="image" src="https://github.com/user-attachments/assets/ff8b1dee-901b-47ec-884b-90e42a64cf3d" />
+
 
 ## RESULT
+
+Thus, the Hill Cipher encryption program was executed successfully, and the given plaintext was encrypted into ciphertext using a 2×2 key matrix.
